@@ -2,9 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool cmp()
+bool cmp(int &a, int &b)
 {
-
+    return a>b;
 }
 
 int main()
@@ -18,6 +18,8 @@ int main()
     {
         cout<<it<<" ";
     }
+    cout<<endl;
+    cout<<endl;
 
     sort(vec.begin(), vec.end(), cmp); // STL cmp sort.
 
