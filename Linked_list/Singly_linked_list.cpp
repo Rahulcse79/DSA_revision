@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class node{
@@ -34,6 +35,33 @@ void InsertAtTail(node* &head,int data)
     tempTravel->next = temp;
 }
 
+void InsertAtMid(node* &head, int data)
+{
+    node* temp = head;
+    int count = 0;
+
+    while(temp)
+    {
+        temp = temp->next;
+        count++;
+    }
+
+    count >>= 1;
+    
+    temp = head;
+    while(count--)
+    {
+        temp = temp->next;
+    }
+
+    node* newNode = new node(data);
+    if(temp->next != NULL){
+        node* nextNode = temp->next;
+        newNode->next = nextNode;
+    }
+    temp->next = newNode;
+}
+
 void PrintLinkedList(node* head)
 {
     node* temp = head;
@@ -53,6 +81,7 @@ int main()
     InsertAtHead(head,30);
     InsertAtHead(head,20);
     InsertAtHead(head,10);
+    InsertAtMid(head,5);
     PrintLinkedList(head);
 
     return 0;
